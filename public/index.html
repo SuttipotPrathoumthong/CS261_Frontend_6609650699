@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="button" onclick="submitLogin()">Login</button>
-            <button type="button" onclick="call_REST_API_Hello()">Hello</button>
+    <div class="form-container">
+        <img src="img/Thammasat_main_logo.png" alt="University Logo" class="centered-logo">
+        <h1>Login Page</h1>
+        <form id="logInForm" onsubmit="return false;">
+            <div id="result" style="display:none;">
+                <h2 style="color: #C3002F;">Login Successful</h2>
+                <p>Name: <span id="displayname_th"></span></p>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control-input" id="username" placeholder="Username" required>
+                <div class="error-message" id="username-error"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control-input" id="password" placeholder="Password" required>
+                <span class="password-toggle" onclick="togglePassword()">
+                    <i class="fas fa-eye" id="toggleIcon"></i>
+                </span>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            <div class="form-group">
+                <select id="role" class="form-control-input" required>
+                    <option value="">Select your role</option>
+                    <option value="Student">Student</option>
+                    <option value="Lecturer">Lecturer</option>
+                </select>
+                <div class="error-message" id="role-error"></div>
+            </div>
+            <button type="submit" class="form-control-submit-button" id="login-btn">Login</button>
         </form>
-        <p id="message"></p>
+
     </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
